@@ -47,22 +47,22 @@ c. Représentation LC3
 
 Mon code :
 ```assembly
- .ORIG x3000
- LEA R0,LOREM; Chargement dans RO de l’adresse de la chaîne
- LD R1,CHAR; Chargement dans R1 du code ASCII de ’l’
- AND R2,R2,#0 ; Mise à 0 du compteur
- NOT R1,R1 ; Calcul de l’opposé de R1
- ADD R1,R1,#1 ; R1 = -R1
+.ORIG x3000
+LEA R0,LOREM; Chargement dans RO de l’adresse de la chaîne
+LD R1,CHAR; Chargement dans R1 du code ASCII de ’l’
+AND R2,R2,#0 ; Mise à 0 du compteur
+NOT R1,R1 ; Calcul de l’opposé de R1
+ADD R1,R1,#1 ; R1 = -R1
 loop LDR R3,R0,#0 ; Chargement dans R3 du caractère pointé par R0
- BRz fini ; Test de fin de chaîne
- ADD R3,R3,R1 ; Comparaison avec ’l’
- BRnp suite ; Non égalité
- ADD R2,R2,#1 ; Incrémentation du compteur
-suite ADD R0,R0,#1 ; Incrémentation du pointeur
- BR loop
+BRz fini ; Test de fin de chaîne 
+ADD R3,R3,R1 ; Comparaison avec ’l’
+BRnp suite ; Non égalité
+ADD R2,R2,#1 ; Incrémentation du compteursuite 
+ADD R0,R0,#1 ; Incrémentation du pointeur
+BR loop
 fini HALT
 CHAR .STRINGZ "r" ; caractère dont on souhaite compter le nombre d'itérations
 LOREM .STRINGZ "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." ; Chaine de caractère dans laquelle on souhaite compter les itérations
 LEN .FILL #123 ; taille de la chaine de caractère
 CMPT .FILL #0 ; espace mémoire pour stocker le résultat
- .END
+.END
