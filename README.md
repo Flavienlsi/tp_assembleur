@@ -33,8 +33,8 @@ g_c_caraACompter = "r"
 nb_caractere=0
 
 for c in g_tc_chaineDeCara :
-if c==g_c_caraACompter :
-nb_caractere+=1
+    if c==g_c_caraACompter :
+        nb_caractere+=1
 print(nb_caractere)
 ```
 
