@@ -66,3 +66,66 @@ LOREM .STRINGZ "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
 LEN .FILL #123 ; taille de la chaine de caractère
 CMPT .FILL #0 ; espace mémoire pour stocker le résultat
 .END
+```
+
+BONUS 1
+
+Mon code :
+```assembly
+.orig x3000	
+AND R2, R2, #0; Caractère de la chaine qui va être comparé 
+AND R3, R3, #0; Compteur d'occurence
+LD R4, CHAR
+LEA R0, LOREM
+LOOP LDR R2, R0, #0
+ADD R0, R0, #1
+NOT R1, R2
+ADD R1, R1, #1
+ADD R1, R1, R4
+BRNP NO_INCR
+ADD R3, R3,  #1
+NO_INCR	ST R0, VERIF
+LDR R6, R0, #0 ; Si LDR est vide on quitte le prog 
+BRZ FIN
+BRNZP LOOP
+FIN	ST R3, CMPT
+CHAR .STRINGZ "r" ; caractère dont on souhaite compter le nombre d'itératio
+LOREM .STRINGZ "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+CMPT .FILL #0 ; espace mémoire pour stocker le résultat
+VERIF .FILL #0 ; verif si on a fini le tableau
+HALT
+.END
+```
+
+BONUS 2
+```assembly
+.orig x3000
+LD R4, CHAR
+LEA R0, LOREM	
+LOOP AND R2, R2, #0
+LDR R2, R0, #0
+ADD R0, R0, #1
+NOT R1, R2
+ADD R1, R1, #1
+AND R2, R2, #0
+LD R2, TMP1
+ADD R1, R1, R4
+BRNP NO_INCR
+ADD R2, R2,  #1
+NO_INCR	ST R0, VERIF
+ST R2, TMP1
+AND R2, R2, #0
+LDR R2, R0, #0
+BRZ FIN
+BRNZP LOOP
+FIN	AND R2, R2, #0
+LD R2, TMP1
+ST R2, CMPT
+CHAR .STRINGZ "r" ; caractère dont on souhaite compter le nombre d'itératio
+LOREM .STRINGZ "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+CMPT .FILL #0 ; espace mémoire pour stocker le résultat
+VERIF .FILL #0 ; verif si on a fini le tableau
+TMP1 .FILL #0 ; variable temporaire pour stocker les registres
+HALT
+.END
+```
