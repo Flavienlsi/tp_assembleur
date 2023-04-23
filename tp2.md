@@ -206,14 +206,6 @@ FIN 		HALT
 		.END
 
 
-	b)
-
-        
-
-	c)
-
-
-
 
 BONUS)
 
