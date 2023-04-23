@@ -5,17 +5,18 @@
 a)
 ```
    cases	|   Hex	   |	  Binaire
-   x3000            x5020               101000000100000
-   x3001	    x2406		10010000000110
-   x3002	    x2606		10011000000110
-   x3003	    x1002		1000000000010
-   x3004	    x16FF		1011011111111
-   x3005	    x03FD		1111111101
-   x3006	    x3003		11000000000011
-   x3007	    xF025		1111000000100101
-   x3008            x000A		1010
-   x3009   	    x0005		0101
-   x300A	    x0009		1001
+   
+   x3000            x5020          101000000100000
+   x3001	    x2406          10010000000110
+   x3002	    x2606	   10011000000110
+   x3003	    x1002	   1000000000010
+   x3004	    x16FF	   1011011111111
+   x3005	    x03FD	   1111111101
+   x3006	    x3003	   11000000000011
+   x3007	    xF025	   1111000000100101
+   x3008            x000A          1010
+   x3009   	    x0005          0101
+   x300A	    x0009	   1001
 ```
 
 b) 
@@ -81,8 +82,9 @@ a)
 	ST R3, RESULTATm
 	BRNZP FIN
 ```
-POSITIF ST R3, RESULTATm
+
 ```
+POSITIF ST R3, RESULTATm
 	;espace mémoire variables func_autre
 	VALEUR1a .fill #25
 	VALEUR2a .fill #10
@@ -114,8 +116,7 @@ FUNC_AUTRE ;LABEL alias d'adresse de la première instruction de la fonction
 	;## RESULATm = 1 si VALEUR1m < VALEUR2m ##
 	;########################################################
 
-FUNC_MAX ;LABEL alias d'adresse de la première instruction de la fonction f
-
+FUNC_MAX
 
 	LD R0, VALEUR1m
 	LD R1, VALEUR2m
