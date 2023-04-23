@@ -148,7 +148,7 @@ FIN_F   RET
 	.END
 ```
 
-c) a. (l'exo n'est pas fini)
+c) a. 
 
 		.orig x3000
 
