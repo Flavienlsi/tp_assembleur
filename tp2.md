@@ -86,9 +86,9 @@ a)
 ```
 POSITIF ST R3, RESULTATm
 	;espace mémoire variables func_autre
-	VALEUR1a .fill #25
-	VALEUR2a .fill #10
-	RESULTATa .blkw #1
+	VALEUR1m .fill #25
+	VALEUR2m .fill #10
+	RESULTATm .blkw #1
 FIN
         .END
 ```
