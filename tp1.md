@@ -1,4 +1,4 @@
-# tp_assembleur
+# tp1_assembler
 
 
 1.	Vérifions cela avec un premier programme simple
@@ -129,3 +129,4 @@ TMP1 .FILL #0 ; variable temporaire pour stocker les registres
 HALT
 .END
 ```
+
